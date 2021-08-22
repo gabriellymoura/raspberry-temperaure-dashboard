@@ -12,6 +12,9 @@
   width: 176px;
   height: 100vh;
 }
+.wrapper-left a{
+  text-decoration: none;
+}
 
 .wrapper-right{
   position: relative;
@@ -305,6 +308,19 @@
   font-family: Suez One;
 }
 
+#myLinks {
+  display: none;
+}
+#menu-buguer{
+  display: none;
+}
+
+.wrapper-middle{
+  display:flex;
+  background: #39A0ED;
+  flex-direction:row;
+}
+
 @media  (max-width: 768px){
   .main{
     display: inline-flex;
@@ -374,6 +390,12 @@
   .text{
     margin: 55px 32px 42px
   }
+  #myLinks {
+  display: none;
+  }
+  #menu-buguer{
+    display: none;
+  }
 }
 
 @media (max-width: 414px){
@@ -387,8 +409,7 @@
     align-items: center;
 
     background: #39A0ED;
-
-    width: 414px;
+    width:100vw;
     height: 100px;
   }
   .header-temperatura-asfalto p {
@@ -403,12 +424,11 @@
     display:none;
     background-color: none;
   }
-  
-  
   .imagem {
     position: relative;
     right: 0;
     top: 0;
+    margin: 0 10px;
   }
   .imagem img{
     width: 150px;
@@ -461,4 +481,30 @@
   .description{
     font-size: 1rem;
   }
+  
+  #myLinks {
+  display: none;
+  }
+  
+  #menu-buguer {
+    display: block;
+    color: #fff;
+    right: 0;
+    top: 0;
+    font-size:1.3rem;
+  }
+  #myLinks a{
+    text-decoration:none;
+    color: #fff;
+    font-family: Suez One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    margin:10px;
+  }
+  .card-grafico{
+    width: 300px;
+    margin-left: -52px;
+  }
+
 }

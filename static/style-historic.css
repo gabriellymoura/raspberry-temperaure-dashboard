@@ -48,8 +48,6 @@
   color: #32322c;
 }
 
-
-
 .card-table {
   width: 141rem;
   padding: 2.8rem;
@@ -213,5 +211,188 @@ table{
   color: #39a0ed;
 
   font-family: Suez One;
+}
+  #myLinks {
+    display: none;
+  }
+  #menu-buguer{
+    display: none;
+  }
+
+  .wrapper-middle{
+    display:flex;
+    background: #39A0ED;
+    flex-direction:row;
+}
+.wrapper-left a{
+  text-decoration: none;
+}
+}
+
+@media  (max-width: 768px){
+  .main{
+    display: inline-flex;
+    flex-direction: column;
+  }
+  .wrapper-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #39A0ED;
+    width: 655px;
+    height: 100px;
+  }
+  .navegacao-dashboard{
+    display:none;
+    background-color: none;
+  }
+  
+  .imagem {
+    position: relative;
+    right: 0;
+    top: 0;
+  }
+  .imagem img{
+    width: 150px;
+  }
+  .content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .wrapper-right{
+    width: 655px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+  }
+  .card-temp{
+    width: 30.5rem;
+    height: 33rem;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 16px;
+    margin-bottom: 18px;
+  }
+  .card-temp i{
+    font-size: 4rem;
+  }
+  .info  div p{
+    font-size: 1.3rem;
+  }
+  .local p{
+    font-size: 1rem;
+  }
+  .local i{
+    font-size: 4rem;
+  }
+
+  .temperature span{
+    font-size: 8rem;
+  }
+  .text{
+    margin: 55px 32px 42px
+  }
+    #myLinks {
+  display: none;
+  }
+  #menu-buguer{
+    display: none;
+  }
+}
+
+@media (max-width: 414px){
+  .main{
+    display: inline-flex;
+    flex-direction: column;
+  }
+  .wrapper-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background: #39A0ED;
+    width:100vw;
+    height: 100px;
+  }
+  .header-temperatura-asfalto p {
+    line-height: 14px;
+  }
+  .navegacao-dashboard{
+    display:none;
+    background-color: none;
+  }
+
+  .navegacao-tabela{
+    display:none;
+    background-color: none;
+  }
+  
+  .imagem {
+    position: relative;
+    right: 0;
+    top: 0;
+    margin: 0 10px;
+  }
+  .imagem img{
+    width: 150px;
+  }
+  .content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .wrapper-right{
+    width: 414px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 140vh;
+  }
+  .text{
+    margin: 29px 32px 29px;
+  }
+  .title {
+    font-size: 4rem;
+  }
+  .description{
+    font-size: 1.7rem;
+  }
+  .card-table{
+    width: 51rem;
+    padding: 3.9rem;
+    
+  }
+  .dataTables_wrapper{
+    width: 67%;
+  }
+  #myLinks {
+  display: none;
+  }
+  
+  #menu-buguer {
+    display: block;
+    color: #fff;
+    right: 0;
+    top: 0;
+    font-size:1.9rem;
+  }
+  #myLinks a{
+    text-decoration:none;
+    color: #fff;
+    font-family: Suez One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6rem;
+    margin:10px;
+  }
+
 }
 
