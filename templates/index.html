@@ -34,11 +34,14 @@
    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
    <script type="text/javascript" charset="utf-8">
       $(document).ready(function() {
+        
       	var socket = io.connect('http://' + document.domain + ':' + location.port);
       	socket.on('connect', function() {
           socket.emit('my event', {data: 'I\'m connected!'});
       	});
+        
       	socket.on('temperature', function(msg) {
+          console.log('temp: ', msg);
          var nDate = new Date();
           $('#hora').text(nDate.getHours() + ' : ' + nDate.getMinutes() +
              ' : ' + nDate.getSeconds() + '').html();
@@ -56,6 +59,27 @@
           }
           
       	});
+        
+        socket.on('humidity', function(msg) {
+          console.log('umidade: ', msg);
+         var nDate = new Date();
+          $('#horaH').text(nDate.getHours() + ' : ' + nDate.getMinutes() +
+             ' : ' + nDate.getSeconds() + '').html();
+          $('#dataH').text(nDate.getDate() + ' de ' + (nDate.getMonth()+1) +
+             ' de ' + nDate.getFullYear() + '').html();
+          $('#humidity').text(msg.data).html();
+          
+          var x = nDate.getTime(),
+          y = parseFloat(msg.data);
+          console.log(y);
+          if(chartH.series[0].data.length > 40) {
+            chartH.series[0].addPoint([x, y], true, true, true);
+          } else {
+            chartH.series[0].addPoint([x, y], true, false, true);
+          }
+          
+      	});
+        
           var z = document.getElementByClassName("card-grafico");
           if (z.style.width === "300px"){
             chartT.setSize(300);
@@ -107,8 +131,9 @@
         <div class="text">
           <p class="title">Bem vindo!</p>
           <p class="description">Temperatura Revestimento Superficie</p>
-        </div>
+        </div>        
         <div class="content">
+        <div class="temp-area">
           <div id ="card-temp-id" class="card-temp">
             <div class="info">
               <i class="fas fa-info-circle"></i>
@@ -135,6 +160,35 @@
           <div class="card-grafico" id="chart-temperature">
             <div class="grafico"></div>
           </div>
+        </div>
+        <div class="temp-area">
+          <div id ="card-temp-id" class="card-temp">
+            <div class="info">
+              <i class="fas fa-info-circle"></i>
+              <div>
+                <p>Hoje</p>
+                <p id="horaH"></p>
+                <p id="dataH"></p>
+              </div>
+            </div>
+            <div class="temperature">
+              <!-- <span>%TEMP_VALUE%</span> -->
+              <span id="humidity"></span>
+              %
+            </div>
+            <div class="local">
+              <i class="fas fa-road"></i>
+              <p>
+                São Luis
+                <br />
+                Maranhão
+              </p>
+            </div>
+          </div>
+          <div class="card-grafico" id="chart-humidity">
+            <div class="grafico"></div>
+          </div>
+        </div>
         </div>
         <div class="development-by">
           <p>Desenvolvido por:</p>
@@ -166,6 +220,30 @@ var chartT = new Highcharts.Chart({
   },
   yAxis: {
     title: { text: 'Temperatura (Celsius)' }
+    //title: { text: 'Temperature (Fahrenheit)' }
+  },
+  credits: { enabled: false },
+  responsive: true,
+});
+
+var chartH = new Highcharts.Chart({
+  chart:{ renderTo : 'chart-humidity' },
+  title: { text: 'Umidade do Solo' },
+  series: [{
+    showInLegend: false,
+    data: []
+  }],
+  plotOptions: {
+    line: { animation: false,
+      dataLabels: { enabled: true }
+    },
+    series: { color: '#39A0ED' }
+  },
+  xAxis: { type: 'datetime',
+    dateTimeLabelFormats: { second: '%H:%M:%S' }
+  },
+  yAxis: {
+    title: { text: 'Umidade (%)' }
     //title: { text: 'Temperature (Fahrenheit)' }
   },
   credits: { enabled: false },

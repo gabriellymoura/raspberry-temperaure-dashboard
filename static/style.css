@@ -21,11 +21,17 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 
   width: 100vw;
   height: 100vh;
 }
+.temp-area{
+    display: flex;
+    flex-direction: column;
+    margin-left:50px;
+    align-items: center;
+}
+
 
 .card-temp{
   width: 18.5rem;
@@ -39,7 +45,8 @@
   border-radius: 16px;
 
   /* margin-left: 32px; */
-  margin-right: 4rem
+  margin-right: 4rem;
+  margin-bottom:30px;
 }
 .card-grafico{
   width: 558px;
@@ -292,6 +299,8 @@
 }
 
 .development-by{
+  padding-top: 10px;
+    
   width: 100%;
   display: flex;
   justify-content: center;
@@ -303,8 +312,6 @@
 .development-by p a{
   text-decoration: none;
   color: #39A0ED;
-  
-
   font-family: Suez One;
 }
 
