@@ -3,9 +3,9 @@
 #### Requisitos / Antes de rodar...
   * MQTT Broker no Raspberry Pi.
   * Rodar o arquivo Python Server no Raspberry Pi:
-  * Instalar Flask
-  * Instalar Paho-MQTT
-  * Instalar SocketI
+    * Instalar Flask
+    * Instalar Paho-MQTT
+    * Instalar SocketI
        * **se por acaso der erro por falta de instação d biblioteca, instalar na raiz do projeto**
 * Configurar SQLite
   * Criar banco
