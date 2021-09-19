@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   <!-- Optional theme -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Suez+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/images/road-solid.svg"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+      crossorigin="anonymous"
+    />
+    <link
+      href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-historic.css') }}">
+    <title>Historico</title>
+  
+  </head>
+  <body>
+    <div class="main">
+      <div class="wrapper-left">
+        <div class="header-temperatura-asfalto">
+          <a href="/" class="active">
+            <i class="fas fa-road" style="color: #32322c; font-size: 40px"></i>
+            <p class="description-header">Temperatura Asfalto</p>
+          </a>
+        </div>
+
+        <div class="navegacao-dashboard">
+          <i class="fas fa-thermometer-three-quarters"></i>
+          <p class="dashboard-text">
+            <a href="./">Dashboard</a>
+          </p>
+        </div>
+        <div class="navegacao-tabela">
+          <i class="fas fa-table"></i>
+          <p class="dashboard-text">
+            <a class="history-text" href="#">Histórico</a>
+          </p>
+        </div>
+
+        <div class="imagem">
+          <img
+            src="https://www.uema.br/wp-content/uploads/2019/06/UEMA_logo_oficial-4-351x185@2x.png"
+          />
+        </div>
+	<a id="menu-buguer" href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      <div class="wrapper-middle">
+        <div id="myLinks">
+          <a href="./">Dashboard</a>
+          <br>
+          <a href="./historic">Histórico</a>
+        </div>
+      </div>
+      <div class="wrapper-right">
+        <div class="text">
+          <p class="title">Database</p>
+          <p class="description">Histórico de Temperatura no Banco de dados</p>
+        </div>
+        <div class="content">
+	  <div class="card-table">
+	    <table id="minhaTabela" class="table table-striped">
+		<thead>
+		   <tr>
+		     <th>ID</th>
+		     <th>Temperatura (&degC)</th>
+		     <th>Umidade (%)</th>
+		     <th>Data</th>
+		     <th>Horario</th>
+		     <th>Dispositivo</th>
+		   </tr>
+		</thead>
+		<tbody>
+		 {% for entry in readings %}
+		    <tr><td>{{ entry.id }}</td>
+		    <td>{{ entry.temperature }}</td>
+		    <td>{{ entry.humidity }}</td>
+		    <td>{{ entry.currentdate }}</td>
+		    <td>{{ entry.currenttime }}</td>
+		    <td>{{ entry.device }}</td></tr>
+		 {% endfor %}	
+		</tbody>
+	     </table>
+	     
+
+	    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>			 
+	     <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+	     <script src="//cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+	     <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	     <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	     <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	     <script src="//cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+	     <script src="//cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+
+	     <script>
+		$(document).ready(function () {
+		  $("#minhaTabela").DataTable({
+		    autoWidth: true,
+		    lengthChange: true,
+		    responsive: true,
+		    "order": [[0, "desc"]],
+		    dom: 'Bfrtip',
+		    buttons: [
+		      {extend:'print', className:'button'},
+		      {extend:'csv', className:'button'}, 
+		      {extend:'excel', className:'button'}, 
+		      {extend:'pdf', className:'button'}
+		    ],
+		    language: {
+			  lengthMenu: "Mostrando _MENU_ registros por página",
+			  zeroRecords: "Nada encontrado",
+			  info: "Mostrando página _PAGE_ de _PAGES_",
+			  infoEmpty: "Nenhum registro disponível",
+			  infoFiltered: "(filtrado de _MAX_ registros no total)",
+		    },
+		  });
+		});
+	    </script>
+          </div>
+	</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+  </script>
+</html>

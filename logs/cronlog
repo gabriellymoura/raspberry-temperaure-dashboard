@@ -1,0 +1,122 @@
+WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
+Connected with result code 0
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:8181/ (Press CTRL+C to quit)
+ * Restarting with stat
+WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
+ * Debugger is active!
+ * Debugger PIN: 644-188-266
+192.168.1.101 - - [19/Sep/2021 14:59:56] "GET /socket.io/?EIO=3&transport=polling&t=1632081596088-0 HTTP/1.1" 200 -
+192.168.1.101 - - [19/Sep/2021 14:59:56] "POST /socket.io/?EIO=3&transport=polling&t=1632081596166-1&sid=7791af0f31824661940c4cfa010989e7 HTTP/1.1" 200 -
+192.168.1.101 - - [19/Sep/2021 15:00:05] "GET /socket.io/?EIO=3&transport=polling&t=1632081596166-2&sid=7791af0f31824661940c4cfa010989e7 HTTP/1.1" 200 -
+192.168.1.101 - - [19/Sep/2021 15:00:11] "GET /historic HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.7/dist-packages/flask_socketio/__init__.py", line 46, in __call__
+    start_response)
+  File "/usr/local/lib/python3.7/dist-packages/engineio/middleware.py", line 74, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/pi/Documents/raspberry-temperaure-dashboard/app.py", line 68, in historic
+    conn.row_factory = dict_factory
+AttributeError: 'mariadb.connection' object has no attribute 'row_factory'
+192.168.1.101 - - [19/Sep/2021 15:00:11] "GET /historic?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+192.168.1.101 - - [19/Sep/2021 15:00:11] "GET /historic?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+192.168.1.101 - - [19/Sep/2021 15:00:12] "GET /historic?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+192.168.1.101 - - [19/Sep/2021 15:00:12] "GET /historic?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+192.168.1.101 - - [19/Sep/2021 15:00:12] "GET /historic?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+192.168.1.101 - - [19/Sep/2021 15:00:16] "GET /socket.io/?EIO=3&transport=polling&t=1632081605845-3&sid=7791af0f31824661940c4cfa010989e7 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:00:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:00:56] "GET /socket.io/?EIO=3&transport=polling&t=1632081656816-0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:00:57] "POST /socket.io/?EIO=3&transport=polling&t=1632081657233-1&sid=6edf268a7de8421f889aa8498fd267c2 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:00:57] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [19/Sep/2021 15:00:59] "GET /socket.io/?EIO=3&transport=polling&t=1632081657242-2&sid=6edf268a7de8421f889aa8498fd267c2 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:01:10] "GET /socket.io/?EIO=3&transport=polling&t=1632081660234-3&sid=6edf268a7de8421f889aa8498fd267c2 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:01:14] "GET /historic HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2309, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.7/dist-packages/flask_socketio/__init__.py", line 46, in __call__
+    start_response)
+  File "/usr/local/lib/python3.7/dist-packages/engineio/middleware.py", line 74, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2295, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1741, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/pi/Documents/raspberry-temperaure-dashboard/app.py", line 68, in historic
+    conn.row_factory = dict_factory
+AttributeError: 'mariadb.connection' object has no attribute 'row_factory'
+127.0.0.1 - - [19/Sep/2021 15:01:14] "GET /historic?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:01:15] "GET /historic?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:01:15] "GET /historic?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:01:16] "GET /historic?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:01:17] "GET /historic?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:01:21] "GET /socket.io/?EIO=3&transport=polling&t=1632081670881-4&sid=6edf268a7de8421f889aa8498fd267c2 HTTP/1.1" 200 -
+ * Detected change in '/home/pi/Documents/raspberry-temperaure-dashboard/app.py', reloading
+Connected with result code 0
+received json data here: {'data': "I'm connected!"}
+received json data here: {'data': "I'm connected!"}
+ * Restarting with stat
+WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
+ * Debugger is active!
+ * Debugger PIN: 644-188-266
+127.0.0.1 - - [19/Sep/2021 15:02:14] "GET /historic HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 15:02:20] "GET /images/road-solid.svg HTTP/1.1" 404 -
+127.0.0.1 - - [19/Sep/2021 15:03:31] "GET /historic HTTP/1.1" 200 -
+ * Detected change in '/home/pi/Documents/raspberry-temperaure-dashboard/app.py', reloading
+Connected with result code 0
+ * Restarting with stat
+WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
+ * Debugger is active!
+ * Debugger PIN: 644-188-266
+ * Detected change in '/home/pi/Documents/raspberry-temperaure-dashboard/app.py', reloading
+Connected with result code 0
+ * Restarting with stat
+WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
+ * Debugger is active!
+ * Debugger PIN: 644-188-266
+127.0.0.1 - - [19/Sep/2021 15:09:17] "GET /historic HTTP/1.1" 200 -
+ * Detected change in '/home/pi/Documents/raspberry-temperaure-dashboard/app.py', reloading
+Connected with result code 0
+ * Restarting with stat
+  File "app.py", line 62
+    de historic():
+     ^
+SyntaxError: invalid syntax
