@@ -26,6 +26,7 @@ def on_message(client, userdata, message):
 
     if message.topic == "/esp32/readings":
         readings_json = json.loads(message_received)
+        print("data recebido: ", readings_json)
         socketio.emit('temperature', {'data': readings_json['temperature']})
         socketio.emit('humidity', {'data': readings_json['humidity']})
         

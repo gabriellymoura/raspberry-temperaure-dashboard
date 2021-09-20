@@ -1,5 +1,4 @@
 WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-Connected with result code 0
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: Do not use the development server in a production environment.
@@ -10,113 +9,136 @@ Connected with result code 0
 WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
  * Debugger is active!
  * Debugger PIN: 644-188-266
-192.168.1.101 - - [19/Sep/2021 14:59:56] "GET /socket.io/?EIO=3&transport=polling&t=1632081596088-0 HTTP/1.1" 200 -
-192.168.1.101 - - [19/Sep/2021 14:59:56] "POST /socket.io/?EIO=3&transport=polling&t=1632081596166-1&sid=7791af0f31824661940c4cfa010989e7 HTTP/1.1" 200 -
-192.168.1.101 - - [19/Sep/2021 15:00:05] "GET /socket.io/?EIO=3&transport=polling&t=1632081596166-2&sid=7791af0f31824661940c4cfa010989e7 HTTP/1.1" 200 -
-192.168.1.101 - - [19/Sep/2021 15:00:11] "GET /historic HTTP/1.1" 500 -
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2309, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/usr/local/lib/python3.7/dist-packages/flask_socketio/__init__.py", line 46, in __call__
-    start_response)
-  File "/usr/local/lib/python3.7/dist-packages/engineio/middleware.py", line 74, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2295, in wsgi_app
-    response = self.handle_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1741, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/pi/Documents/raspberry-temperaure-dashboard/app.py", line 68, in historic
-    conn.row_factory = dict_factory
-AttributeError: 'mariadb.connection' object has no attribute 'row_factory'
-192.168.1.101 - - [19/Sep/2021 15:00:11] "GET /historic?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
-192.168.1.101 - - [19/Sep/2021 15:00:11] "GET /historic?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
-192.168.1.101 - - [19/Sep/2021 15:00:12] "GET /historic?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
-192.168.1.101 - - [19/Sep/2021 15:00:12] "GET /historic?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-192.168.1.101 - - [19/Sep/2021 15:00:12] "GET /historic?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-192.168.1.101 - - [19/Sep/2021 15:00:16] "GET /socket.io/?EIO=3&transport=polling&t=1632081605845-3&sid=7791af0f31824661940c4cfa010989e7 HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:00:54] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:00:56] "GET /socket.io/?EIO=3&transport=polling&t=1632081656816-0 HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:00:57] "POST /socket.io/?EIO=3&transport=polling&t=1632081657233-1&sid=6edf268a7de8421f889aa8498fd267c2 HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:00:57] "GET /favicon.ico HTTP/1.1" 404 -
-127.0.0.1 - - [19/Sep/2021 15:00:59] "GET /socket.io/?EIO=3&transport=polling&t=1632081657242-2&sid=6edf268a7de8421f889aa8498fd267c2 HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:01:10] "GET /socket.io/?EIO=3&transport=polling&t=1632081660234-3&sid=6edf268a7de8421f889aa8498fd267c2 HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:01:14] "GET /historic HTTP/1.1" 500 -
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2309, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/usr/local/lib/python3.7/dist-packages/flask_socketio/__init__.py", line 46, in __call__
-    start_response)
-  File "/usr/local/lib/python3.7/dist-packages/engineio/middleware.py", line 74, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2295, in wsgi_app
-    response = self.handle_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1741, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/pi/Documents/raspberry-temperaure-dashboard/app.py", line 68, in historic
-    conn.row_factory = dict_factory
-AttributeError: 'mariadb.connection' object has no attribute 'row_factory'
-127.0.0.1 - - [19/Sep/2021 15:01:14] "GET /historic?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:01:15] "GET /historic?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:01:15] "GET /historic?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:01:16] "GET /historic?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:01:17] "GET /historic?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:01:21] "GET /socket.io/?EIO=3&transport=polling&t=1632081670881-4&sid=6edf268a7de8421f889aa8498fd267c2 HTTP/1.1" 200 -
- * Detected change in '/home/pi/Documents/raspberry-temperaure-dashboard/app.py', reloading
-Connected with result code 0
-received json data here: {'data': "I'm connected!"}
-received json data here: {'data': "I'm connected!"}
- * Restarting with stat
-WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
- * Debugger is active!
- * Debugger PIN: 644-188-266
-127.0.0.1 - - [19/Sep/2021 15:02:14] "GET /historic HTTP/1.1" 200 -
-127.0.0.1 - - [19/Sep/2021 15:02:20] "GET /images/road-solid.svg HTTP/1.1" 404 -
-127.0.0.1 - - [19/Sep/2021 15:03:31] "GET /historic HTTP/1.1" 200 -
- * Detected change in '/home/pi/Documents/raspberry-temperaure-dashboard/app.py', reloading
-Connected with result code 0
- * Restarting with stat
-WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
- * Debugger is active!
- * Debugger PIN: 644-188-266
- * Detected change in '/home/pi/Documents/raspberry-temperaure-dashboard/app.py', reloading
-Connected with result code 0
- * Restarting with stat
-WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
- * Debugger is active!
- * Debugger PIN: 644-188-266
-127.0.0.1 - - [19/Sep/2021 15:09:17] "GET /historic HTTP/1.1" 200 -
- * Detected change in '/home/pi/Documents/raspberry-temperaure-dashboard/app.py', reloading
-Connected with result code 0
- * Restarting with stat
-  File "app.py", line 62
-    de historic():
-     ^
-SyntaxError: invalid syntax
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET / HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/style.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/css/font-suezone.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/css/all.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/js/jquery-1.11.2.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/js/exporting.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/js/accessibility.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/js/export-data.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/js/socket.io.min.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/UEMA_logo_oficial.png HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /socket.io/?EIO=3&transport=polling&t=1632101199115-0 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/webfonts/fa-solid-900.woff HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /favicon.ico HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "POST /socket.io/?EIO=3&transport=polling&t=1632101199134-1&sid=076bf3a1db9f4b8e980031102e7e5ca4 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/webfonts/fa-solid-900.ttf HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/webfonts/fa-solid-900.svg HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/webfonts/fa-regular-400.woff HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/webfonts/fa-regular-400.ttf HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:26:25] "GET /static/webfonts/fa-regular-400.svg HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:26:35] "GET /socket.io/?EIO=3&transport=polling&t=1632101199135-2&sid=076bf3a1db9f4b8e980031102e7e5ca4 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:46] "GET /socket.io/?EIO=3&transport=polling&t=1632101209716-3&sid=076bf3a1db9f4b8e980031102e7e5ca4 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:26:57] "GET /socket.io/?EIO=3&transport=polling&t=1632101220145-4&sid=076bf3a1db9f4b8e980031102e7e5ca4 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET / HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/style.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/css/font-suezone.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/css/all.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/js/jquery-1.11.2.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/js/exporting.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/js/export-data.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/js/accessibility.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/js/socket.io.min.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/UEMA_logo_oficial.png HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /socket.io/?EIO=3&transport=polling&t=1632101242235-0 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /favicon.ico HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/webfonts/fa-solid-900.woff HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "POST /socket.io/?EIO=3&transport=polling&t=1632101242258-1&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/webfonts/fa-solid-900.ttf HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/webfonts/fa-solid-900.svg HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/webfonts/fa-regular-400.woff HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/webfonts/fa-regular-400.ttf HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:27:08] "GET /static/webfonts/fa-regular-400.svg HTTP/1.1" 404 -
+127.0.0.1 - - [19/Sep/2021 22:27:16] "GET / HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:18] "GET /socket.io/?EIO=3&transport=polling&t=1632101242258-2&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:20] "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [19/Sep/2021 22:27:21] "GET /socket.io/?EIO=3&transport=polling&t=1632101240901-0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:21] "GET /static/webfonts/fa-solid-900.woff HTTP/1.1" 404 -
+127.0.0.1 - - [19/Sep/2021 22:27:21] "POST /socket.io/?EIO=3&transport=polling&t=1632101241612-1&sid=70647835e8bc474597a1a9a34f25d919 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:21] "GET /static/webfonts/fa-solid-900.ttf HTTP/1.1" 404 -
+127.0.0.1 - - [19/Sep/2021 22:27:22] "GET /favicon.ico HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:27:29] "GET /socket.io/?EIO=3&transport=polling&t=1632101252521-3&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:29] "GET /socket.io/?EIO=3&transport=polling&t=1632101241619-2&sid=70647835e8bc474597a1a9a34f25d919 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/css/font-suezone.css HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/css/all.css HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/js/jquery-1.11.2.js HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/js/jquery-3.1.1.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/js/exporting.js HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/js/export-data.js HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/js/accessibility.js HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:33] "GET /static/js/socket.io.min.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:33] "POST /socket.io/?EIO=3&transport=polling&t=1632101267259-5&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:33] "GET /socket.io/?EIO=3&transport=polling&t=1632101263263-4&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:34] "GET /static/UEMA_logo_oficial.png HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:34] "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+127.0.0.1 - - [19/Sep/2021 22:27:35] "GET /static/webfonts/fa-solid-900.woff HTTP/1.1" 404 -
+127.0.0.1 - - [19/Sep/2021 22:27:36] "GET /socket.io/?EIO=3&transport=polling&t=1632101255933-0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:36] "GET /static/webfonts/fa-solid-900.ttf HTTP/1.1" 404 -
+127.0.0.1 - - [19/Sep/2021 22:27:36] "POST /socket.io/?EIO=3&transport=polling&t=1632101256277-1&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:36] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [19/Sep/2021 22:27:40] "GET /socket.io/?EIO=3&transport=polling&t=1632101249982-3&sid=70647835e8bc474597a1a9a34f25d919 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:40] "GET /socket.io/?EIO=3&transport=polling&t=1632101267306-6&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:40] "GET /socket.io/?EIO=3&transport=polling&t=1632101256282-2&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:27:51] "GET /socket.io/?EIO=3&transport=polling&t=1632101260657-3&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:51] "GET /socket.io/?EIO=3&transport=polling&t=1632101274013-7&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:58] "POST /socket.io/?EIO=3&transport=polling&t=1632101292318-9&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:27:58] "GET /socket.io/?EIO=3&transport=polling&t=1632101284865-8&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:01] "POST /socket.io/?EIO=3&transport=polling&t=1632101281274-5&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:01] "GET /socket.io/?EIO=3&transport=polling&t=1632101271450-4&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:01] "GET /socket.io/?EIO=3&transport=polling&t=1632101292360-10&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:01] "GET /socket.io/?EIO=3&transport=polling&t=1632101281316-6&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:12] "GET /socket.io/?EIO=3&transport=polling&t=1632101295616-11&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:12] "GET /socket.io/?EIO=3&transport=polling&t=1632101282153-7&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:23] "GET /socket.io/?EIO=3&transport=polling&t=1632101306372-12&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:23] "GET /socket.io/?EIO=3&transport=polling&t=1632101292918-8&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:23] "POST /socket.io/?EIO=3&transport=polling&t=1632101317361-14&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:23] "GET /socket.io/?EIO=3&transport=polling&t=1632101317224-13&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:26] "POST /socket.io/?EIO=3&transport=polling&t=1632101306317-10&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:26] "GET /socket.io/?EIO=3&transport=polling&t=1632101303740-9&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:34] "GET /socket.io/?EIO=3&transport=polling&t=1632101317395-15&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:34] "GET /socket.io/?EIO=3&transport=polling&t=1632101306355-11&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /historic HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /static/style-historic.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /static/css/jquery.dataTables.min.css HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /static/js/dataTables/pdfmake.min.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /static/js/dataTables/jquery.dataTables.min.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /static/js/dataTables/dataTables.buttons.min.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /static/js/dataTables/jszip.min.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /static/js/dataTables/buttons.html5.min.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /static/js/dataTables/buttons.print.min.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:38] "GET /static/js/dataTables/jquery-3.5.1.js HTTP/1.1" 200 -
+192.168.50.192 - - [19/Sep/2021 22:28:39] "GET /static/webfonts/fa-solid-900.woff HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:28:39] "GET /static/webfonts/fa-solid-900.ttf HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:28:39] "GET /static/webfonts/fa-solid-900.svg HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:28:39] "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:28:39] "GET /static/webfonts/fa-regular-400.woff HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:28:39] "GET /static/webfonts/fa-regular-400.ttf HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:28:40] "GET /static/images/sort_both.png HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:28:40] "GET /static/images/sort_desc.png HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:28:40] "GET /static/webfonts/fa-regular-400.svg HTTP/1.1" 404 -
+192.168.50.192 - - [19/Sep/2021 22:28:45] "GET /socket.io/?EIO=3&transport=polling&t=1632101327874-16&sid=672c134a87b142f2acff441aaba29672 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:45] "GET /socket.io/?EIO=3&transport=polling&t=1632101314486-12&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:51] "POST /socket.io/?EIO=3&transport=polling&t=1632101331356-14&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:51] "GET /socket.io/?EIO=3&transport=polling&t=1632101325303-13&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:28:55] "GET /socket.io/?EIO=3&transport=polling&t=1632101331396-15&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Sep/2021 22:29:06] "GET /socket.io/?EIO=3&transport=polling&t=1632101336098-16&sid=cef507f676964aad9897759ed6400243 HTTP/1.1" 200 -
