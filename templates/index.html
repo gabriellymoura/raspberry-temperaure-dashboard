@@ -28,52 +28,50 @@
           socket.emit('my event', {data: 'I\'m connected!'});
       	});
         
-      	socket.on('temperature', function(msg) {
-          console.log('temp: ', msg);
-         var nDate = new Date();
-          $('#hora').text(nDate.getHours() + ' : ' + nDate.getMinutes() +
-             ' : ' + nDate.getSeconds() + '').html();
-          $('#data').text(nDate.getDate() + ' de ' + (nDate.getMonth()+1) +
-             ' de ' + nDate.getFullYear() + '').html();
-          $('#temperature').text(msg.data).html();
+      	//socket.on('temperature', function(msg) {
+          //console.log('temp: ', msg);
+         //var nDate = new Date();
+          //$('#hora').text(nDate.getHours() + ' : ' + nDate.getMinutes() +
+             //' : ' + nDate.getSeconds() + '').html();
+          //$('#data').text(nDate.getDate() + ' de ' + (nDate.getMonth()+1) +
+             //' de ' + nDate.getFullYear() + '').html();
+          //$('#temperature').text(msg.data).html();
           
-          var x = nDate.getTime(),
-          y = parseFloat(msg.data);
-          console.log(y);
-          if(chartT.series[0].data.length > 40) {
-            chartT.series[0].addPoint([x, y], true, true, true);
-          } else {
-            chartT.series[0].addPoint([x, y], true, false, true);
-          }
-          
-      	});
+      	//});
         
-        socket.on('humidity', function(msg) {
-          console.log('umidade: ', msg);
-         var nDate = new Date();
-          $('#horaH').text(nDate.getHours() + ' : ' + nDate.getMinutes() +
-             ' : ' + nDate.getSeconds() + '').html();
-          $('#dataH').text(nDate.getDate() + ' de ' + (nDate.getMonth()+1) +
-             ' de ' + nDate.getFullYear() + '').html();
-          $('#humidity').text(msg.data).html();
-          
-          var x = nDate.getTime(),
-          y = parseFloat(msg.data);
-          console.log(y);
-          if(chartH.series[0].data.length > 40) {
-            chartH.series[0].addPoint([x, y], true, true, true);
-          } else {
-            chartH.series[0].addPoint([x, y], true, false, true);
-          }
-          
-      	});
+        //socket.on('humidity', function(msg) {
+          //console.log('umidade: ', msg);
+         //var nDate = new Date();
+          //$('#horaH').text(nDate.getHours() + ' : ' + nDate.getMinutes() +
+             //' : ' + nDate.getSeconds() + '').html();
+          //$('#dataH').text(nDate.getDate() + ' de ' + (nDate.getMonth()+1) +
+             //' de ' + nDate.getFullYear() + '').html();
+          //$('#humidity').text(msg.data).html();
+                    
+      	//});
+          //{% for entry in data %}
+          //var x = {{ entry.currenttime }},
+          //y = parseFloat({{ entry.humidity }});
+          //if(chartH.series[0].data.length > 40) {
+            //chartH.series[0].addPoint([x, y], true, true, true);
+          //} else {
+            //chartH.series[0].addPoint([x, y], true, false, true);
+          //}
         
-          var z = document.getElementByClassName("card-grafico");
-          if (z.style.width === "300px"){
-            chartT.setSize(300);
-          } else {
-            chartT.setSize(null);
-          }
+          //var x = {{ entry.currenttime }},
+          //y = parseFloat({{ entry.temperature }});
+          //if(chartT.series[0].data.length > 40) {
+            //chartT.series[0].addPoint([x, y], true, true, true);
+          //} else {
+            //chartT.series[0].addPoint([x, y], true, false, true);
+          //}
+          //{% endfor %}
+          //var z = document.getElementByClassName("card-grafico");
+          //if (z.style.width === "300px"){
+            //chartT.setSize(300);
+          //} else {
+            //chartT.setSize(null);
+          //}
       });
    </script>
 </head>
@@ -126,14 +124,19 @@
             <div class="info">
               <i class="fas fa-info-circle"></i>
               <div>
-                <p>Hoje</p>
-                <p id="hora"></p>
-                <p id="data"></p>
+                <p>Ultima atualização:</p>
+                {% for entry in data %}
+                <p id="hora">{{ entry.currenttime }}</p>
+                <p id="data">{{ entry.currentdate }}</p>
+                <p id="data">{{ entry.device }}</p>
+                {% endfor %}
               </div>
             </div>
             <div class="temperature">
               <!-- <span>%TEMP_VALUE%</span> -->
-              <span id="temperature"></span>
+              {% for entry in data %}
+              <span id="temperature">{{ entry.temperature }}</span>
+              {% endfor %}
               &degC
             </div>
             <div class="local">
@@ -154,14 +157,19 @@
             <div class="info">
               <i class="fas fa-info-circle"></i>
               <div>
-                <p>Hoje</p>
-                <p id="horaH"></p>
-                <p id="dataH"></p>
+                <p>Ultima atualização:</p>
+                {% for entry in data %}
+                <p id="hora">{{ entry.currenttime }}</p>
+                <p id="data">{{ entry.currentdate }}</p>
+                <p id="data">{{ entry.device }}</p>
+                {% endfor %}
               </div>
             </div>
             <div class="temperature">
               <!-- <span>%TEMP_VALUE%</span> -->
-              <span id="humidity"></span>
+              {% for entry in data %}
+              <span id="humidity">{{ entry.humidity }}</span>
+              {% endfor %}
               %
             </div>
             <div class="local">

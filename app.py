@@ -18,35 +18,99 @@ def dict_factory(cursor, row):
     return d
 
 def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
-    client.subscribe("/esp32/readings")
+    print("Conectado rc = "+str(rc))
+    client.subscribe("PV/ESP32/01")
+    client.subscribe("PV/ESP32/02")
+    client.subscribe("PV/ESP32/03")
+    client.subscribe("PV/ESP32/04")
+    client.subscribe("PV/ESP32/05")
+    
+def on_disconnect(client, userdata, rc=0):
+    logging.debug("Desconectado rc = "+str(rc))
+    client.loop_stop()
+
 
 def on_message(client, userdata, message):
     message_received=str(message.payload.decode("utf-8"))
+    print("recebeu nova mensagem")
 
-    if message.topic == "/esp32/readings":
-        readings_json = json.loads(message_received)
-        print("data recebido: ", readings_json)
-        socketio.emit('temperature', {'data': readings_json['temperature']})
-        socketio.emit('humidity', {'data': readings_json['humidity']})
-        
-        today = date.today()
-        d1 = today.strftime("%d/%m/%Y")
-        now = time.localtime()
-        t1 = time.strftime("%H:%M:%S", now)
-        
+    readings_json = json.loads(message_received)        
+    socketio.emit('temperature', {'data': readings_json['temperature']})
+    socketio.emit('humidity', {'data': readings_json['humidity']})
+    
+    today = date.today()
+    d1 = today.strftime("%d/%m/%Y")
+    now = time.localtime()
+    t1 = time.strftime("%H:%M:%S", now)
+    
+    print("mensagem recebida: ", readings_json)
+    
+    if message.topic == "PV/ESP32/01":
         conn = mariadb.connect(
             user="admin",
             password="admin",
             host="localhost",
             database="PAVIMENTO_UEMA")
         c = conn.cursor() 
-  
         c.execute("""INSERT INTO infos_uema(temperature,
-                humidity, currentdate, currenttime, device) VALUES((?), (?), (?),
-                (?), (?))""", (readings_json['temperature'],readings_json['humidity'], d1, t1, 'PV/ESP/01') )
+                humidity, currentdate, currenttime, device, device_rpi) VALUES((?), (?), (?),
+                (?), (?), (?))""", (readings_json['temperature'],readings_json['humidity'], d1, t1, 'PV/ESP/01', 'PV/RASP/01') )
         conn.commit()
         conn.close()
+        
+    elif message.topic == "PV/ESP32/02":
+        conn = mariadb.connect(
+            user="admin",
+            password="admin",
+            host="localhost",
+            database="PAVIMENTO_UEMA")
+        c = conn.cursor() 
+        c.execute("""INSERT INTO infos_uema(temperature,
+                humidity, currentdate, currenttime, device, device_rpi) VALUES((?), (?), (?),
+                (?), (?), (?))""", (readings_json['temperature'],readings_json['humidity'], d1, t1, 'PV/ESP/02', 'PV/RASP/01') )
+        conn.commit()
+        conn.close()
+        
+    elif message.topic == "PV/ESP32/03":
+        conn = mariadb.connect(
+            user="admin",
+            password="admin",
+            host="localhost",
+            database="PAVIMENTO_UEMA")
+        c = conn.cursor() 
+        c.execute("""INSERT INTO infos_uema(temperature,
+                humidity, currentdate, currenttime, device, device_rpi) VALUES((?), (?), (?),
+                (?), (?), (?))""", (readings_json['temperature'],readings_json['humidity'], d1, t1, 'PV/ESP/03', 'PV/RASP/01') )
+        conn.commit()
+        conn.close()
+        
+    elif message.topic == "PV/ESP32/04":
+        conn = mariadb.connect(
+            user="admin",
+            password="admin",
+            host="localhost",
+            database="PAVIMENTO_UEMA")
+        c = conn.cursor() 
+        c.execute("""INSERT INTO infos_uema(temperature,
+                humidity, currentdate, currenttime, device, device_rpi) VALUES((?), (?), (?),
+                (?), (?), (?))""", (readings_json['temperature'],readings_json['humidity'], d1, t1, 'PV/ESP/04', 'PV/RASP/01') )
+        conn.commit()
+        conn.close()
+    
+    elif message.topic == "PV/ESP32/05":
+        conn = mariadb.connect(
+            user="admin",
+            password="admin",
+            host="localhost",
+            database="PAVIMENTO_UEMA")
+        c = conn.cursor() 
+        c.execute("""INSERT INTO infos_uema(temperature,
+                humidity, currentdate, currenttime, device, device_rpi) VALUES((?), (?), (?),
+                (?), (?), (?))""", (readings_json['temperature'],readings_json['humidity'], d1, t1, 'PV/ESP/05', 'PV/RASP/01') )
+        conn.commit()
+        conn.close()
+        
+        
                
 mqttc=mqtt.Client()
 mqttc.on_connect = on_connect
@@ -56,8 +120,19 @@ mqttc.loop_start()
 
 @app.route("/")
 def main():
+   conn = mariadb.connect(
+            user="admin",
+            password="admin",
+            host="localhost",
+            database="PAVIMENTO_UEMA")
+   c=conn.cursor(dictionary=True)
+   c.execute("SELECT * FROM infos_uema ORDER BY id DESC LIMIT 1")
+   data = c.fetchall()
    # Pass the template data into the template main.html and return it to the user
-   return render_template('index.html', async_mode=socketio.async_mode)
+   return render_template('index.html', async_mode=socketio.async_mode, data=data)
+
+#SELECT * FROM infos_uema ORDER BY id DESC LIMIT 1
+
    
 @app.route("/historic")
 def historic():
@@ -78,4 +153,4 @@ def handle_my_custom_event(json):
     print('received json data here: ' + str(json))
 
 if __name__ == "__main__":
-   socketio.run(app, host='0.0.0.0', port=8181, debug=True)
+   socketio.run(app, host='0.0.0.0', port=8181, debug=False)

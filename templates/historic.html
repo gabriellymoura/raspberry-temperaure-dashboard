@@ -96,7 +96,8 @@
                   <th>Umidade (%)</th>
                   <th>Data</th>
                   <th>Horario</th>
-                  <th>Dispositivo</th>
+                  <th>ESP_ID</th>
+		  <th>RASP_ID</th>
                 </tr>
               </thead>
               <tbody>
@@ -108,6 +109,7 @@
                   <td>{{ entry.currentdate }}</td>
                   <td>{{ entry.currenttime }}</td>
                   <td>{{ entry.device }}</td>
+		  <td>{{ entry.device_rpi }}</td>
                 </tr>
                 {% endfor %}
               </tbody>

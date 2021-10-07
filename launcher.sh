@@ -3,5 +3,5 @@
 
 cd /
 cd /home/pi/Documents/raspberry-temperaure-dashboard
-python3 app.py
+python3 app.py --no-reload
 cd /

@@ -1,59 +1,8 @@
 WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
-Connected with result code 0
+Conectado rc = 0
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: Do not use the development server in a production environment.
    Use a production WSGI server instead.
- * Debug mode: on
+ * Debug mode: off
  * Running on http://0.0.0.0:8181/ (Press CTRL+C to quit)
- * Restarting with stat
-WebSocket transport not available. Install eventlet or gevent and gevent-websocket for improved performance.
- * Debugger is active!
- * Debugger PIN: 302-520-752
-127.0.0.1 - - [20/Sep/2021 10:00:06] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:00:10] "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 404 -
-127.0.0.1 - - [20/Sep/2021 10:00:11] "GET /socket.io/?EIO=3&transport=polling&t=1632142810952-0 HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:00:11] "POST /socket.io/?EIO=3&transport=polling&t=1632142811359-1&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:00:11] "GET /static/webfonts/fa-solid-900.woff HTTP/1.1" 404 -
-127.0.0.1 - - [20/Sep/2021 10:00:11] "GET /static/webfonts/fa-solid-900.ttf HTTP/1.1" 404 -
-127.0.0.1 - - [20/Sep/2021 10:00:11] "GET /favicon.ico HTTP/1.1" 404 -
-127.0.0.1 - - [20/Sep/2021 10:00:25] "GET /static/js/highcharts.js.map HTTP/1.1" 404 -
-127.0.0.1 - - [20/Sep/2021 10:00:25] "GET /static/js/exporting.js.map HTTP/1.1" 404 -
-127.0.0.1 - - [20/Sep/2021 10:00:25] "GET /static/js/export-data.js.map HTTP/1.1" 404 -
-127.0.0.1 - - [20/Sep/2021 10:00:25] "GET /static/js/accessibility.js.map HTTP/1.1" 404 -
-127.0.0.1 - - [20/Sep/2021 10:00:25] "GET /static/css/bootstrap-theme.min.css.map HTTP/1.1" 404 -
-127.0.0.1 - - [20/Sep/2021 10:00:36] "GET /socket.io/?EIO=3&transport=polling&t=1632142811365-2&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:00:36] "POST /socket.io/?EIO=3&transport=polling&t=1632142836326-3&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:01:01] "POST /socket.io/?EIO=3&transport=polling&t=1632142861404-5&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:01:01] "GET /socket.io/?EIO=3&transport=polling&t=1632142836405-4&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:01:26] "POST /socket.io/?EIO=3&transport=polling&t=1632142886480-7&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:01:26] "GET /socket.io/?EIO=3&transport=polling&t=1632142861480-6&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:01:52] "POST /socket.io/?EIO=3&transport=polling&t=1632142912064-9&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:01:52] "GET /socket.io/?EIO=3&transport=polling&t=1632142886562-8&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:02:18] "POST /socket.io/?EIO=3&transport=polling&t=1632142938067-11&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:02:18] "GET /socket.io/?EIO=3&transport=polling&t=1632142912107-10&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:02:44] "POST /socket.io/?EIO=3&transport=polling&t=1632142964065-13&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:02:44] "GET /socket.io/?EIO=3&transport=polling&t=1632142938221-12&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:03:09] "POST /socket.io/?EIO=3&transport=polling&t=1632142989149-15&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:03:09] "GET /socket.io/?EIO=3&transport=polling&t=1632142964150-14&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:03:35] "POST /socket.io/?EIO=3&transport=polling&t=1632143015065-17&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:03:35] "GET /socket.io/?EIO=3&transport=polling&t=1632142989228-16&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:04:01] "POST /socket.io/?EIO=3&transport=polling&t=1632143041067-19&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:04:01] "GET /socket.io/?EIO=3&transport=polling&t=1632143015218-18&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:04:27] "POST /socket.io/?EIO=3&transport=polling&t=1632143067067-21&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:04:27] "GET /socket.io/?EIO=3&transport=polling&t=1632143041361-20&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:04:53] "POST /socket.io/?EIO=3&transport=polling&t=1632143093065-23&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:04:53] "GET /socket.io/?EIO=3&transport=polling&t=1632143067153-22&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:05:18] "POST /socket.io/?EIO=3&transport=polling&t=1632143118219-25&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:05:18] "GET /socket.io/?EIO=3&transport=polling&t=1632143093220-24&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:05:44] "POST /socket.io/?EIO=3&transport=polling&t=1632143144065-27&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:05:44] "GET /socket.io/?EIO=3&transport=polling&t=1632143118292-26&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:06:10] "POST /socket.io/?EIO=3&transport=polling&t=1632143170065-29&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:06:10] "GET /socket.io/?EIO=3&transport=polling&t=1632143144156-28&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:06:36] "POST /socket.io/?EIO=3&transport=polling&t=1632143196065-31&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:06:36] "GET /socket.io/?EIO=3&transport=polling&t=1632143170149-30&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:07:02] "POST /socket.io/?EIO=3&transport=polling&t=1632143222065-33&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:07:02] "GET /socket.io/?EIO=3&transport=polling&t=1632143196145-32&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:07:28] "POST /socket.io/?EIO=3&transport=polling&t=1632143248065-35&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:07:28] "GET /socket.io/?EIO=3&transport=polling&t=1632143222232-34&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
-127.0.0.1 - - [20/Sep/2021 10:08:11] "GET /socket.io/?EIO=3&transport=polling&t=1632143248128-36&sid=f0602a4874bc408db21e18d6fd9fbb9f HTTP/1.1" 200 -
