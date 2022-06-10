@@ -35,31 +35,17 @@
 
 .card-temp{
   width: 18.5rem;
-  height: 24rem;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  background: #FFFFFF;
+  background: #f9f8f8;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   border-radius: 16px;
 
   /* margin-left: 32px; */
   margin-right: 4rem;
   margin-bottom:30px;
+  padding: 1rem;
 }
-.card-grafico{
-  width: 558px;
-  height: 377px;
 
-  background: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 16px;
-}
-.grafico{
-  width: 508px;
-  height: 327px;
-}
 
 .text{
   margin: 13px 32px 26px;
@@ -80,33 +66,10 @@
   font-family: Suez One;
   font-style: normal;
   font-weight: normal;
-  font-size: 23px;
+  font-size: 17px;
   line-height: 17px;
 
   color: #32322C;
-}
-.info{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-
-  padding: 20px;
-}
-.info  div p{
-  font-family: Suez One;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 13px;
-
-  color: #32322C;
-
-  padding-bottom: 6px;
-}
-.info i{
-  color: #4C6085;
-  font-size: 40px;
 }
 .temperature{
   display: flex;
@@ -132,34 +95,12 @@
   color: #4C6085;
 }
 
-.local{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.local p{
-  font-family: Suez One;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 9px;
-  line-height: 12px;
-  text-align: center;
-
-  color: #32322C;
-}
-.local i{
-  color: #32322C; 
-  font-size: 40px;
-}
-
 .content{
   display: flex;
-  width: 80%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 2rem;
+}
+.info{
+  margin: 32px;
 }
 
 .temp-asfalto{
@@ -329,6 +270,10 @@
 }
 
 @media  (max-width: 768px){
+
+.text {
+    margin: 236px 32px 42px;
+}
   .main{
     display: inline-flex;
     flex-direction: column;
@@ -369,30 +314,16 @@
     height: 100vh;
   }
   .card-temp{
-    width: 30.5rem;
-    height: 33rem;
     display: flex;
     flex-direction: column;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 16px;
-    margin-bottom: 18px;
-  }
-  .card-temp i{
-    font-size: 4rem;
-  }
-  .info  div p{
-    font-size: 1.3rem;
-  }
-  .local p{
-    font-size: 1rem;
-  }
-  .local i{
-    font-size: 4rem;
+
   }
 
   .temperature span{
-    font-size: 8rem;
+    font-size: 3rem;
   }
   .text{
     margin: 55px 32px 42px
@@ -406,6 +337,11 @@
 }
 
 @media (max-width: 414px){
+
+  .text {
+      margin: 131px 32px 42px;
+  }
+
   .main{
     display: inline-flex;
     flex-direction: column;
@@ -455,32 +391,11 @@
     height: 140vh;
   }
   .card-temp{
-    width: 18.5rem;
-    height: 25rem;
     display: flex;
     flex-direction: column;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 16px;
-    margin-bottom: 17px;
-  }
-  .card-temp i{
-    font-size: 3rem;
-  }
-  .info  div p{
-    font-size: 1rem;
-  }
-  .local p{
-    font-size: 0.7rem;
-  }
-  .local i{
-    font-size: 3rem;
-  }
-  .temperature span{
-    font-size: 6rem;
-  }
-  .text{
-    margin: 55px 32px 42px
   }
   .title {
     font-size: 1.5rem;

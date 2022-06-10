@@ -1,7 +1,8 @@
 import paho.mqtt.client as mqtt
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
-import sqlite3
+from datetime import datetime
+import mariadb
 import json
 
 app = Flask(__name__)
@@ -16,21 +17,34 @@ def dict_factory(cursor, row):
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
-    client.subscribe("/esp32/readings")
+    client.subscribe("PV/ESP32/01")
 
 def on_message(client, userdata, message):
     message_received=str(message.payload.decode("utf-8"))
 
-    if message.topic == "/esp32/readings":
+    if message.topic == "PV/ESP32/01":
         readings_json = json.loads(message_received)
-        socketio.emit('temperature', {'data': readings_json['temperature']})
-        socketio.emit('humidity', {'data': readings_json['humidity']})
-    
-        conn=sqlite3.connect('asphalt.db')
+        print(readings_json)
+
+        now = datetime.now()
+        date = now.strftime("%d/%m/%Y")
+        time = now.strftime("%H:%M:%S")
+        print(date,time)
+            
+        conn = mariadb.connect(
+            user="root",
+            password="root",
+            port=3306,
+            database="databaseMain"
+            )
         c=conn.cursor()
-        c.execute("""INSERT INTO pavimentDatas(temperature,
-                humidity, currentdate, currentime, device) VALUES((?), (?), date('now'),
-                time('now'), (?))""", (readings_json['temperature'],readings_json['humidity'], 'PV/ESP/01') )
+        c.execute("""INSERT INTO tableMain(temperaturaSolo,
+                umidadeSolo,temperaturaAr,umidadeAr,
+                currentdate, currenttime, device) VALUES((?),(?),(?),
+                (?), (?),(?), (?))""",
+                (readings_json['tempSolo'],readings_json['humSolo'],
+                readings_json['tempAr'],readings_json['humAr'],
+                date, time,readings_json['device']) )
         conn.commit()
         conn.close()
                
@@ -43,16 +57,29 @@ mqttc.loop_start()
 @app.route("/")
 def main():
    # Pass the template data into the template main.html and return it to the user
-   return render_template('index.html', async_mode=socketio.async_mode)
+   conn = mariadb.connect(
+            user="root",
+            password="root",
+            port=3306,
+            database="databaseMain")
+   
+
+   c=conn.cursor()
+   c.execute("SELECT * FROM tableMain ORDER BY id DESC LIMIT 1")
+   current = c.fetchall()
+   return render_template('index.html', async_mode=socketio.async_mode, current=current)
    
 @app.route("/historic")
 def historic():
-   conn=sqlite3.connect('asphalt.db')
-   conn.row_factory = dict_factory
+   conn = mariadb.connect(
+            user="root",
+            password="root",
+            port=3306,
+            database="databaseMain")
+   
    c=conn.cursor()
-   c.execute("SELECT * FROM pavimentDatas ORDER BY id DESC")
+   c.execute("SELECT * FROM tableMain ORDER BY id DESC")
    readings = c.fetchall()
-   #print(readings)
    return render_template('historic.html', readings=readings)
    
 @socketio.on('my event')

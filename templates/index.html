@@ -6,17 +6,17 @@
    
    <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+      href="{{ url_for('static', filename='bootstrap-theme.min.css') }}"
       integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
       crossorigin="anonymous"
     />
 	
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Suez+One&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="{{ url_for('static', filename='css2.css') }}" rel="stylesheet">
+   <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome.min.css') }}">
 
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+   <link rel="stylesheet" href="{{ url_for('static', filename='all.css') }}"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	
    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -25,69 +25,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
    <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
-   
-   <script src="https://code.highcharts.com/highcharts.js"></script>
-   <script src="https://code.highcharts.com/modules/exporting.js"></script>
-   <script src="https://code.highcharts.com/modules/export-data.js"></script>
-   <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-   
-   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
-   <script type="text/javascript" charset="utf-8">
-      $(document).ready(function() {
-        
-      	var socket = io.connect('http://' + document.domain + ':' + location.port);
-      	socket.on('connect', function() {
-          socket.emit('my event', {data: 'I\'m connected!'});
-      	});
-        
-      	socket.on('temperature', function(msg) {
-          console.log('temp: ', msg);
-         var nDate = new Date();
-          $('#hora').text(nDate.getHours() + ' : ' + nDate.getMinutes() +
-             ' : ' + nDate.getSeconds() + '').html();
-          $('#data').text(nDate.getDate() + ' de ' + (nDate.getMonth()+1) +
-             ' de ' + nDate.getFullYear() + '').html();
-          $('#temperature').text(msg.data).html();
-          
-          var x = nDate.getTime(),
-          y = parseFloat(msg.data);
-          console.log(y);
-          if(chartT.series[0].data.length > 40) {
-            chartT.series[0].addPoint([x, y], true, true, true);
-          } else {
-            chartT.series[0].addPoint([x, y], true, false, true);
-          }
-          
-      	});
-        
-        socket.on('humidity', function(msg) {
-          console.log('umidade: ', msg);
-         var nDate = new Date();
-          $('#horaH').text(nDate.getHours() + ' : ' + nDate.getMinutes() +
-             ' : ' + nDate.getSeconds() + '').html();
-          $('#dataH').text(nDate.getDate() + ' de ' + (nDate.getMonth()+1) +
-             ' de ' + nDate.getFullYear() + '').html();
-          $('#humidity').text(msg.data).html();
-          
-          var x = nDate.getTime(),
-          y = parseFloat(msg.data);
-          console.log(y);
-          if(chartH.series[0].data.length > 40) {
-            chartH.series[0].addPoint([x, y], true, true, true);
-          } else {
-            chartH.series[0].addPoint([x, y], true, false, true);
-          }
-          
-      	});
-        
-          var z = document.getElementByClassName("card-grafico");
-          if (z.style.width === "300px"){
-            chartT.setSize(300);
-          } else {
-            chartT.setSize(null);
-          }
-      });
-   </script>
+  
 </head>
 <body>
     <div class="main">
@@ -130,135 +68,69 @@
       <div class="wrapper-right">
         <div class="text">
           <p class="title">Bem vindo!</p>
-          <p class="description">Temperatura Revestimento Superficie</p>
+          {% for entry in current %}
+            <p class="description">Ultima amostra coletada em: {{entry.5}}, {{entry.6}}</p>
+          {% endfor %}
         </div>        
+        <h2 class="info">Coletas de amostras do Solo</h2>
         <div class="content">
         <div class="temp-area">
           <div id ="card-temp-id" class="card-temp">
-            <div class="info">
-              <i class="fas fa-info-circle"></i>
-              <div>
-                <p>Hoje</p>
-                <p id="hora"></p>
-                <p id="data"></p>
-              </div>
-            </div>
+            <h4>Temperatura: </h4>
             <div class="temperature">
               <!-- <span>%TEMP_VALUE%</span> -->
-              <span id="temperature"></span>
+              {% for entry in current %}
+                <span id="temperature">{{ entry.1 }}</span>
+              {% endfor %}
               &degC
             </div>
-            <div class="local">
-              <i class="fas fa-road"></i>
-              <p>
-                São Luis
-                <br />
-                Maranhão
-              </p>
-            </div>
-          </div>
-          <div class="card-grafico" id="chart-temperature">
-            <div class="grafico"></div>
           </div>
         </div>
         <div class="temp-area">
           <div id ="card-temp-id" class="card-temp">
-            <div class="info">
-              <i class="fas fa-info-circle"></i>
-              <div>
-                <p>Hoje</p>
-                <p id="horaH"></p>
-                <p id="dataH"></p>
-              </div>
-            </div>
+            <h4>Humidade: </h4>
             <div class="temperature">
               <!-- <span>%TEMP_VALUE%</span> -->
-              <span id="humidity"></span>
+              {% for entry in current %}
+                <span id="humidity">{{ entry.2 }}</span>
+              {% endfor %}
               %
             </div>
-            <div class="local">
-              <i class="fas fa-road"></i>
-              <p>
-                São Luis
-                <br />
-                Maranhão
-              </p>
+          </div>
+        </div>
+        </div>
+        <h2 class="info">Coletas de amostras do Ar</h2>
+        <div class="content">
+        <div class="temp-area">
+          <div id ="card-temp-id" class="card-temp">
+            <h4>Temperatura: </h4>
+            <div class="temperature">
+              <!-- <span>%TEMP_VALUE%</span> -->
+              {% for entry in current %}
+                <span id="temperature">{{ entry.3 }}</span>
+              {% endfor %}
+              &degC
             </div>
           </div>
-          <div class="card-grafico" id="chart-humidity">
-            <div class="grafico"></div>
+        </div>
+        <div class="temp-area">
+          <div id ="card-temp-id" class="card-temp">
+            <h4>Humidade: </h4>
+            <div class="temperature">
+              <!-- <span>%TEMP_VALUE%</span> -->
+              {% for entry in current %}
+                <span id="humidity">{{ entry.4 }}</span>
+              {% endfor %}
+              %
+            </div>
           </div>
         </div>
-        </div>
-        <div class="development-by">
-          <p>Desenvolvido por:</p>
-          <p>
-            <a href="https://www.linkedin.com/in/gabrielly-moura/">
-              Gabrielly Moura &copy</a
-            >
-          </p>
         </div>
       </div>
     </div>
 </body>
 <script>
-var chartT = new Highcharts.Chart({
-  chart:{ renderTo : 'chart-temperature' },
-  title: { text: 'Temperatura do Revestimento' },
-  series: [{
-    showInLegend: false,
-    data: []
-  }],
-  plotOptions: {
-    line: { animation: false,
-      dataLabels: { enabled: true }
-    },
-    series: { color: '#39A0ED' }
-  },
-  xAxis: { type: 'datetime',
-    dateTimeLabelFormats: { second: '%H:%M:%S' }
-  },
-  yAxis: {
-    title: { text: 'Temperatura (Celsius)' }
-    //title: { text: 'Temperature (Fahrenheit)' }
-  },
-  credits: { enabled: false },
-  responsive: true,
-});
 
-var chartH = new Highcharts.Chart({
-  chart:{ renderTo : 'chart-humidity' },
-  title: { text: 'Umidade do Solo' },
-  series: [{
-    showInLegend: false,
-    data: []
-  }],
-  plotOptions: {
-    line: { animation: false,
-      dataLabels: { enabled: true }
-    },
-    series: { color: '#39A0ED' }
-  },
-  xAxis: { type: 'datetime',
-    dateTimeLabelFormats: { second: '%H:%M:%S' }
-  },
-  yAxis: {
-    title: { text: 'Umidade (%)' }
-    //title: { text: 'Temperature (Fahrenheit)' }
-  },
-  credits: { enabled: false },
-  responsive: true,
-});
-
-
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
 </script>
 
 </html>
